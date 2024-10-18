@@ -1,0 +1,255 @@
+body {
+    margin: 0;
+    background-color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    margin-right: 80px;
+    background-color: #000000;
+    color: #fff;
+    z-index: 1000;
+}
+
+header img {
+    width: 80px;
+    height: auto;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    padding-right: 50px;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li:hover a {
+    color: #e600e6; /* Warna teks saat hover */
+}
+
+nav ul li a.btn {
+    padding: 10px 15px; /* Adjust padding if needed */
+    background-color: #ff00ff; /* Background color */
+    border-radius: 15px; /* Rounded corners */
+    font-weight: bold; /* Bold text */
+    transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+nav ul li a.btn:hover {
+    background-color: #e600e6; /* Darker shade on hover */
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-image: url('img/girl.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-top: 500px;
+}
+
+
+.banner .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    text-align: center;
+}
+
+.banner .text h1 {
+    font-size: 50px;
+    margin: 0;
+}
+
+.banner .text p {
+    font-size: 20px;
+}
+
+.container {
+    width: 90%;
+    margin: 40px auto;
+    max-width: 1920px;
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #ff00ff;
+    margin: 10px auto 0;
+}
+
+.catalog {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 80px;
+}
+
+.catalog .btn{
+    
+}
+
+.card {
+    width: 300px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Membesarkan kartu 5% saat hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Mengubah bayangan untuk efek 3D */
+}
+
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.card .price {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.card .btn {
+    font-weight: 400;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff00ff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.assets {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+.asset-card {
+    width: 200px;
+    height: 300px;
+    margin: 30px;
+}
+
+.asset-card img {
+    width: 100%; /* Gambar mengikuti lebar kartu */
+    height: auto; /* Memastikan rasio gambar tetap terjaga */
+    max-height: 200px; /* Batasi tinggi maksimum gambar */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.asset-card img:hover {
+    transform: scale(1.05); /* Membesarkan kartu 5% saat hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Mengubah bayangan untuk efek 3D */
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    background-color: #000000;
+    color: #fff;
+    padding: 40px 20px;
+}
+
+footer .btn {
+    padding: 10px 20px;
+    background-color: #ff00ff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 200px; /* Minimum lebar untuk setiap section */
+    margin: 10px;
+}
+
+.footer-section h4 {
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #ff00ff; /* Warna tautan */
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline; /* Garis bawah saat hover */
+}
+
+.social-media {
+    display: flex;
+    gap: 10px; /* Jarak antar ikon */
+}
+
+.social-media a {
+    color: #fff;
+    font-size: 20px; /* Ukuran ikon */
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
