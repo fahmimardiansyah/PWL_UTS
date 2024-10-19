@@ -10,10 +10,10 @@
           <li><a href="#category">Category</a></li>
           <li><a href="#catalog">Catalog</a></li>
           <li><a href="#about">About Us</a></li>
-          <li><a href="login" class="btn">Login</a></li>
+          <li><a href="{{ url ('login') }}" class="btn">Login</a></li>
       </ul>
+        {{-- <div class="menu-toggle">
+      <i class="fas fa-bars"></i> --}}
+  </div>
   </nav>
-  {{-- <div class="menu-toggle">
-      <i class="fas fa-bars"></i>
-  </div> --}}
 </header>

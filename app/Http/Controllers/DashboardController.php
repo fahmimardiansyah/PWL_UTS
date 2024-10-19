@@ -47,17 +47,6 @@ class DashboardController extends Controller
                 'price' => 50,
                 'image' => 'img/jersey.jpg',
             ],
-            [
-                'name' => 'Rugby Jersey Y2K',
-                'price' => 50,
-                'image' => 'img/jersey.jpg',
-            ],
-            [
-                'name' => 'Rugby Jersey Y2K',
-                'price' => 50,
-                'image' => 'img/jersey.jpg',
-            ],
-            // Tambah produk lain di sini
         ];
 
         // Data untuk assets (bisa berupa gambar atau info lain)

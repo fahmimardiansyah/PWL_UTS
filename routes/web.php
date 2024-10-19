@@ -24,6 +24,8 @@ Route::post('register', [AuthController::class,'postregister']);
 // Rute yang dilindungi oleh autentikasi
 Route::middleware('auth')->group(function () {
 
+    Route::get('/welcome', [WelcomeController::class,'index']);
+
 
     Route::group(['prefix' => 'user'], function () {
         Route::get('/', [UserController::class, 'index']);
