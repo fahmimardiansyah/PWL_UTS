@@ -1,4 +1,4 @@
-@extends('layouts.template')
+@extends('eaqly.template')
 
 @section('content')
 <div class="banner">
@@ -20,9 +20,10 @@
             </div>
         @endforeach
     </div>
-    <footer>
+    <div class="button-container">
         <a href="#" class="btn">See More</a>
-    </footer>
+    </div>
+</div>
 </div>
 
 <div class="container">
@@ -34,8 +35,28 @@
             </div>
         @endforeach
     </div>
-    <footer>
+    <div class="button-container">
         <a href="#" class="btn">See More</a>
-    </footer>
+    </div>
+</div>
+
+<hr>
+
+<div class="container about-me">
+    <h2>About Me</h2>
+    <div class="about-me-content">
+        <div class="about-me-image">
+            <img src="{{ asset('img/ian.jpg') }}" alt="Your Photo">
+        </div>
+        <div class="about-me-text">
+            <p>
+                Hi, I'm Fahmi Mardiansyah, and I am passionate about creating unique and high-quality design. 
+                With years of experience in my business eaqly.gallery, I am dedicated to bringing fresh and innovative ideas 
+                to the market. When I'm not studying, I enjoy my passion at designing. I believe in constant 
+                learning and improving, and I am excited to continue growing in this journey.
+            </p>
+        </div>
+    </div>
+</div>
 </div>
 @endsection

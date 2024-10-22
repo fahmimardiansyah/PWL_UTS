@@ -8,11 +8,19 @@ body {
     background-repeat: no-repeat; /* Prevent repeating the image */
 }
 
+.login {
+    color: white;
+}
+
+.login a {
+    color: #ff8cff;
+}
+
 .login-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Full viewport height */
+    height: 100vh; 
     position: relative;
 }
 
@@ -22,16 +30,20 @@ body {
     backdrop-filter: blur(10px); /* Frosted glass effect */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     padding: 30px;
-    width: 300px;
+    width: 600px;
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.5); /* Optional border */
 }
 
 .login-form h2 {
-    margin-bottom: 20px;
+    font-weight: 700;
+    margin-bottom: 40px;
     color: #ff8cff;
-    font-size: 40px;
-    font-weight: 900;
+}
+
+h1 {
+    font-weight: 600;
+    color: #ff8cff;
 }
 
 .form-group {
@@ -73,4 +85,8 @@ body {
 
 .signup a:hover {
     text-decoration: underline; /* Underline on hover */
+}
+
+p{
+    margin-top: 20px;
 }
