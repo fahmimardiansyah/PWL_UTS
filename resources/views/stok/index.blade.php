@@ -1,17 +1,21 @@
-{{-- @extends('eaqly.template')
+@extends('eaqly.template')
 
 @section('content')
 <div class="top">
 </div>
-
-            <h3 class="card-title profile-name">Daftar Stok</h3>
-            <div class="card-tools profile-actions"> 
-                <a class="btn btn-sm btn-primary mt-1" href="{{ url('stok/create') }}">Tambah</a>
+<div class="cont">
+    <div class="cont-header">
+            <h3 class="cont-title profile-name">Daftar Stok</h3>
+            <div class="cont-tools profile-actions"> 
+                <button onclick="modalAction('{{ url('stok/import/') }}')" class="btn btn-sm btn-info mt-1"> Import Stok</button>
+                <a href="{{ url('/stok/export_excel') }}" class="btn btn-sm btn-primary mt-1"><i class="fa fa-file-excel"></i>Export Stok</a>
                 <a href="{{ url('/stok/export_pdf') }}" class="btn btn-warning"><i class="fa fa-file-pdf"></i> Export Stok</a>
                 <button onclick="modalAction('{{ url('/stok/create_ajax') }}')" class="btn btn-success">Tambah Data (Ajax)</button>
+
+                
             </div>
         </div>
-        <div class="card-body"> <!-- Style tetap, body -->
+        <div class="cont-body"> <!-- Style tetap, body -->
             @if (session('success'))
                 <div class="alert alert-success">{{ session('success') }}</div>
             @endif
@@ -32,9 +36,13 @@
                 </thead>
                 <tbody></tbody>
             </table>
+            <a href="{{ url('/welcome') }}" class="btn btn-secondary mt-1"><i class="fas fa-arrow-left"></i> Kembali</a>
+        </div>
     <div id="myModal" class="modal fade animate shake" tabindex="-1" data-backdrop="static" data-keyboard="false" data-width="75%"></div>
+</div>
 @endsection
-
+@push('css')
+@endpush
 @push('js')
     <script>
         function modalAction(url = '') {
@@ -48,14 +56,17 @@
             tableStok = $('#table-stok').DataTable({
                 processing: true,
                 serverSide: true,
+                pagingType: 'simple',
                 ajax: {
                     "url": "{{ url('stok/list') }}",
                     "dataType": "json",
                     "type": "POST",
                     "data": function(d) {
-                        d.filter_kategori = $('.filter_kategori').val();
+                        d.supplier_id = $('#supplier_id').val();
                     }
+                    
                 },
+                
                 columns: [
                     {
                         data: "DT_RowIndex",
@@ -121,11 +132,14 @@
             $('.filter_kategori').change(function() {
                 tableStok.draw();
             });
+            $('#supplier_id').on('change', function() {
+                dataStok.ajax.reload();
+            })
         });
     </script>
-@endpush --}}
+@endpush
 
-@extends('layouts.template')
+ {{-- @extends('layouts.template')
 @section('content')
     <div class="card card-outline card-primary">
         <div class="card-header">
@@ -255,4 +269,4 @@
             })
         });
     </script>
-@endpush
+@endpush  --}}

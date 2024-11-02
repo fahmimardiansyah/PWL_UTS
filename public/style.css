@@ -435,12 +435,14 @@ h2::after {
 }
 
 .profile-actions .btn {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
     margin: 0 10px;
     padding: 10px 20px;
     text-align: center;
     border: none;
     border-radius: 5px;
-    background-color: #333;
+    background-color: #ff00ff;
     color: white;
     text-decoration: none;
 }
@@ -561,4 +563,131 @@ footer {
 /* Style untuk button modal */
 #myModal .modal-content {
     border-radius: 8px;
+}
+
+
+/* stok */
+.cont {
+    max-width: 1600px; /* Batas maksimal lebar kontainer */
+    margin: 20px auto; /* Otomatis di tengah dengan margin atas dan bawah */
+    padding: 20px; /* Ruang dalam di sekeliling konten */
+    background-color: #fff; /* Warna latar belakang konten */
+    border-radius: 10px; /* Membuat sudut konten melengkung */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+}
+
+.cont-header {
+    display: flex;
+    justify-content: space-between; /* Menempatkan judul di kiri dan tombol di kanan */
+    align-items: center;
+    margin-bottom: 20px; /* Jarak bawah untuk memberi ruang antara header dan konten */
+}
+
+.cont-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333; /* Warna teks */
+}
+
+.cont-tools {
+    display: flex;
+    justify-content: right;
+    gap: 10px; /* Jarak antar tombol */
+}
+
+.cont-body {
+    padding: 10px; /* Ruang dalam di sekeliling body konten */
+    border-top: 1px solid #ddd; /* Garis pembatas antara header dan body */
+}
+
+/* Style untuk tabel */
+#table-stok {
+    width: 100%; /* Tabel penuh mengikuti lebar kontainer */
+    border-collapse: collapse; /* Menghilangkan jarak antar border sel */
+}
+
+#table-stok th, #table-stok td {
+    padding: 10px;
+    text-align: left; /* Perataan teks dalam tabel */
+    border: 1px solid #ddd; /* Border di sekitar sel */
+}
+
+#table-stok th {
+    background-color: #f4f4f4; /* Warna latar belakang untuk header tabel */
+    font-weight: bold;
+}
+
+#table-stok tr:hover {
+    background-color: #f1f1f1; /* Warna saat baris tabel dihover */
+}
+
+/* Style untuk modal */
+#myModal {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.dataTables_info {
+    display: none; /* Sembunyikan bagian info */
+}
+
+/* Mengatur ukuran tombol Previous dan Next */
+.dataTables_paginate .paginate_button {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    padding: 4px 8px;
+    margin: 0 3px;
+    background-color: #ff55ff;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    gap: 10px;
+}
+
+/* Mengatur tampilan tombol ketika di-hover */
+.dataTables_paginate .paginate_button:hover {
+    background-color: #ff4696;
+    color: white;
+}
+
+/* Mengatur tampilan tombol Previous dan Next saat disabled */
+.dataTables_paginate .paginate_button.disabled {
+    background-color: #8d8d8d;
+    color: #ffffff;
+    cursor: not-allowed;
+}
+
+/* Menyembunyikan angka halaman (yang sebenarnya tidak ada) */
+.dataTables_paginate .paginate_button.current {
+    display: none;
+}
+
+/* Memperbaiki posisi Previous dan Next */
+.dataTables_paginate {
+    text-align: center;
+    margin-top: 15px;
+}
+
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .cont-header {
+        flex-direction: column;
+        align-items: flex-start; /* Judul dan tombol tidak lagi berjejer, tapi bertumpuk */
+    }
+
+    .cont-tools {
+        margin-top: 10px; /* Jarak antar tombol saat beralih ke kolom */
+        width: 100%; /* Tombol akan memenuhi lebar */
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .cont-tools a, .cont-tools button {
+        width: 100%; /* Tombol penuh saat tampilan kecil */
+    }
+    
 }

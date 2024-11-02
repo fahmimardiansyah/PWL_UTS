@@ -17,7 +17,7 @@ class DetailController extends Controller
 {
     public function index()
     {
-        $activeMenu = 'penjualan_detail';
+        $activeMenu = 'detail';
         $breadcrumb = (object) [
             'title' => 'Data Detail Penjualan',
             'list' => ['Home', 'Penjualan']
@@ -51,7 +51,7 @@ class DetailController extends Controller
         return DataTables::of($detail)
             ->addIndexColumn() // menambahkan kolom index / no urut (default nama kolom: DT_RowIndex) 
             ->addColumn('aksi', function ($detail) { // menambahkan kolom aksi 
-                $btn = '<a onclick="modalAction(\'' . url('/detail/' . $detail->detail_id . '/show_ajax') . '\')" class="btn btn-info btn-sm">Detail</a> ';
+                $btn = '<a href="' . url('/detail/' . $detail->detail_id) . '" class="btn btn-info btn-sm">Detail</a> ';
                 $btn .= '<a onclick="modalAction(\'' . url('/detail/' . $detail->detail_id . '/edit_ajax') . '\')" class="btn btn-warning btn-sm">Edit</a> ';
                 $btn .= '<button onclick="modalAction(\'' . url('/detail/' . $detail->detail_id . '/delete_ajax') . '\')" class="btn btn-danger btn-sm">Hapus</button> ';
                 return $btn;
@@ -66,14 +66,14 @@ class DetailController extends Controller
         $breadcrumb = (object) ['title' => 'Detail detail', 'list' => ['Home', 'detail', 'Detail']];
         $page = (object) ['title' => 'Detail detail'];
         $activeMenu = 'detail'; // set menu yang sedang aktif
-        return view('penjualan_detail.show', ['breadcrumb' => $breadcrumb, 'page' => $page, 'detail' => $detail, 'activeMenu' => $activeMenu]);
+        return view('detail.show', ['breadcrumb' => $breadcrumb, 'page' => $page, 'detail' => $detail, 'activeMenu' => $activeMenu]);
     }
 
     public function create_ajax()
     {
         $barang = BarangModel::select('barang_id', 'barang_nama')->get();
         $penjualan = PenjualanModel::select('penjualan_id', 'penjualan_kode')->get();
-        return view('penjualan_detail.create_ajax')
+        return view('detail.create_ajax')
             ->with('barang', $barang)
             ->with('penjualan', $penjualan);
     }
@@ -111,7 +111,7 @@ class DetailController extends Controller
         $detail = DetailModel::find($id);
         $barang = BarangModel::select('barang_id', 'barang_nama')->get();
         $penjualan = PenjualanModel::select('penjualan_id', 'penjualan_kode')->get();
-        return view('penjualan_detail.edit_ajax', ['detail' => $detail, 'barang' => $barang, 'penjualan' => $penjualan]);
+        return view('detail.edit_ajax', ['detail' => $detail, 'barang' => $barang, 'penjualan' => $penjualan]);
     }
 
     public function update_ajax(Request $request, $id)
@@ -153,7 +153,7 @@ class DetailController extends Controller
     public function confirm_ajax(string $id)
     {
         $detail = DetailModel::find($id);
-        return view('penjualan_detail.confirm_ajax', ['detail' => $detail]);
+        return view('detail.confirm_ajax', ['detail' => $detail]);
     }
 
     public function delete_ajax(Request $request, $id)
@@ -176,24 +176,10 @@ class DetailController extends Controller
         }
         return redirect('/');
     }
-    public function show_ajax(string $id)
-    {
-        $detail = DetailModel::find($id);
-
-        // Jika level tidak ditemukan
-        if (!$detail) {
-            return response()->json([
-                'status' => false,
-                'message' => 'Data level tidak ditemukan'
-            ]);
-        }
-
-        return view('detail.show_ajax', ['detail' => $detail]);
-    }
 
     public function import()
     {
-        return view('penjualan_detail.import');
+        return view('detail.import');
     }
 
     public function import_ajax(Request $request)
@@ -304,7 +290,7 @@ class DetailController extends Controller
             ->orderBy('detail_id')
             ->with('barang')
             ->get();
-        $pdf = Pdf::loadView('penjualan_detail.export_pdf', ['detail' => $detail]);
+        $pdf = Pdf::loadView('detail.export_pdf', ['detail' => $detail]);
         $pdf->setPaper('a4', 'portrait'); // set ukuran kertas dan orientasi
         $pdf->setOption("isRemoteEnabled", true); // set true jika ada gambar dari url $pdf->render();
         return $pdf->stream('Data Detail Penjualan ' . date('Y-m-d H:i:s') . '.pdf');

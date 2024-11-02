@@ -20,7 +20,7 @@ class DashboardController extends Controller
             [
                 'name' => 'Rugby Jersey Y2K',
                 'price' => 50,
-                'image' => 'img/jersey.jpg', // Path untuk gambar produk
+                'image' => 'img/jersey.jpg', 
             ],
             [
                 'name' => 'Rugby Jersey Y2K',

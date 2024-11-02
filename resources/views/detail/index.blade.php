@@ -5,11 +5,11 @@
         <div class="card-header">
             <div class="card-title">{{ $page->title }}</div>
             <div class="card-tools">
-                <button onclick="modalAction('{{ url('/penjualan_detail/import') }}')" class="btn btn-info">Import
+                <button onclick="modalAction('{{ url('/detail/import') }}')" class="btn btn-info">Import
                     Detail</button>
-                <a href="{{ url('/penjualan_detail/export_excel') }}" class="btn btn-primary"><i class="fa fa-file-excel"></i>
+                <a href="{{ url('/detail/export_excel') }}" class="btn btn-primary"><i class="fa fa-file-excel"></i>
                     Export Detail</a>
-                <a href="{{ url('/penjualan_detail/export_pdf') }}" class="btn btn-warning"><i class="fa fa-file-pdf"></i>
+                <a href="{{ url('/detail/export_pdf') }}" class="btn btn-warning"><i class="fa fa-file-pdf"></i>
                     Export
                     Detail</a>
                 <button onclick="modalAction('{{ url('/detail/create_ajax') }}')" class="btn btn-success">Tambah
@@ -64,7 +64,7 @@
                 // serverSide: true, jika ingin menggunakan server side processing
                 serverSide: true,
                 ajax: {
-                    "url": "{{ url('penjualan_detail/list') }}",
+                    "url": "{{ url('detail/list') }}",
                     "dataType": "json",
                     "type": "POST",
                     "data": function(d) {
